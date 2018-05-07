@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @Configuration
-@PropertySource("file:${app.prop}")
+@PropertySource("file:${appprop}")
 public class BikeApplication extends SpringBootServletInitializer {
 
     @Override
