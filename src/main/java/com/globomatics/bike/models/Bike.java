@@ -3,19 +3,19 @@ package com.globomatics.bike.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
+@Table(name = "bike")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bike {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="bike_generator", sequenceName = "bike_seq")
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     private String name;
