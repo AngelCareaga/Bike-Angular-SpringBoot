@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @Configuration
-@PropertySource("file:${appprop}")
+@PropertySource(value = {"file:${appprop}"})
 public class BikeApplication extends SpringBootServletInitializer {
 
     @Override
@@ -18,6 +18,15 @@ public class BikeApplication extends SpringBootServletInitializer {
     }
 
 	public static void main(String[] args) {
+	    try {
+            System.out.println("========================================");
+            System.out.println("ExtE: " + System.getenv("appprop"));
+            System.out.println("ExtP: " + System.getProperty("app_prop"));
+            System.out.println("========================================");
+        }catch (Exception e){
+           System.out.println(e);
+        }
+
 		SpringApplication.run(BikeApplication.class, args);
 	}
 }
